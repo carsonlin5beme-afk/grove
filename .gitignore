@@ -1,0 +1,41 @@
+# dependencies
+node_modules/
+
+# build / cache
+dist/
+.output/
+.vercel/
+.nitro/
+.tanstack/
+.vite/
+*.tsbuildinfo
+
+# env — never commit secrets
+.env
+.env.*
+!.env.example
+
+# logs & OS
+*.log
+.DS_Store
+Thumbs.db
+
+# editor
+.idea/
+.vscode/
+*.swp
+
+# this workspace only
+.grok/
+artifacts/
+attachments/
+screenshots/
+AGENTS.md
+.project_id
+.node_modules.lock
+startup.sh
+
+# pglite / local db
+*.pglite
+data/
+pglite-data/
