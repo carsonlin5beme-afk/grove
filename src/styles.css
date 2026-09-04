@@ -1,0 +1,442 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-paper: #f6f3fb;
+  --color-paper-deep: #e8e0f2;
+  --color-paper-soft: #fffcff;
+  --color-ink: #2a2433;
+  --color-ink-soft: #5a5466;
+  --color-ink-faint: #8a8496;
+  --color-sage: #7ba88a;
+  --color-sage-deep: #4f7a5e;
+  --color-sage-soft: #8fbf9a;
+  --color-coral: #d08a7c;
+  --color-coral-deep: #b56a5e;
+  --color-coral-soft: #e0a89e;
+  --color-mustard: #d4a24c;
+  --color-mustard-deep: #b8862e;
+  --color-vine: #8aa8a0;
+  --color-vine-soft: #b7d0c8;
+  --color-ground: #8b7ba8;
+  --color-bark: #c4a06a;
+  --color-stump: #c9a06a;
+  --color-bg: #f6f3fb;
+  --color-surface: #fffcff;
+  --color-fg: #2a2433;
+  --color-muted: #5a5466;
+  --color-primary: #4f7a5e;
+  --color-accent: #8b7ba8;
+  --color-border: color-mix(in oklab, #2a2433 12%, transparent);
+  --color-ring: #7a6b9a;
+
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --font-sans: "Figtree", "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", "Iowan Old Style", Palatino, serif;
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius: 0.75rem;
+
+  --shadow-border:
+    0px 0px 0px 1px rgba(42, 36, 51, 0.07),
+    0px 1px 2px -1px rgba(90, 70, 120, 0.06),
+    0px 2px 10px 0px rgba(90, 70, 120, 0.05);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+.paper-grain {
+  background-image: radial-gradient(rgba(90, 70, 130, 0.028) 0.6px, transparent 0.6px);
+  background-size: 7px 7px;
+}
+
+@keyframes grove-sway {
+  0%,
+  100% {
+    transform: rotate(-1.4deg);
+  }
+  50% {
+    transform: rotate(1.6deg);
+  }
+}
+
+@keyframes grove-sway-slow {
+  0%,
+  100% {
+    transform: rotate(-0.9deg);
+  }
+  50% {
+    transform: rotate(1.1deg);
+  }
+}
+
+@keyframes grove-sway-tiny {
+  0%,
+  100% {
+    transform: rotate(-0.5deg);
+  }
+  50% {
+    transform: rotate(0.6deg);
+  }
+}
+
+@keyframes grass-wave {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes pecker {
+  0%,
+  70%,
+  100% {
+    transform: rotate(0deg);
+  }
+  78% {
+    transform: rotate(18deg);
+  }
+}
+
+@keyframes wander {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(12px);
+  }
+}
+
+@keyframes bee-loop {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(18px, -10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes leaf-fall {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(24px, 160px, 0) rotate(120deg);
+    opacity: 0;
+  }
+}
+
+@keyframes bird-glide {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes hen-step {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.5px);
+  }
+}
+
+.sway {
+  transform-origin: 50% 100%;
+  animation: grove-sway 4.8s ease-in-out infinite;
+}
+.sway-slow {
+  transform-origin: 50% 100%;
+  animation: grove-sway-slow 6.4s ease-in-out infinite;
+}
+.sway-tiny {
+  transform-origin: 50% 100%;
+  animation: grove-sway-tiny 5.2s ease-in-out infinite;
+}
+.sway-d1 {
+  animation-delay: -1.2s;
+}
+.sway-d2 {
+  animation-delay: -2.6s;
+}
+.sway-d3 {
+  animation-delay: -4.1s;
+}
+.sway-d4 {
+  animation-delay: -0.6s;
+}
+
+.wave {
+  transform-origin: 50% 100%;
+  animation: grass-wave 3.4s ease-in-out infinite;
+}
+
+@keyframes cover-breathe {
+  0%,
+  100% {
+    transform: rotate(-0.35deg) scale(1);
+  }
+  50% {
+    transform: rotate(0.4deg) scale(1.012);
+  }
+}
+
+@keyframes cover-leaf {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(36px, 220px, 0) rotate(140deg);
+    opacity: 0;
+  }
+}
+
+.cover-breathe {
+  transform-origin: 50% 88%;
+  animation: cover-breathe 8.5s ease-in-out infinite;
+}
+
+.cover-leaf {
+  animation-name: cover-leaf;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes guild-grow {
+  from {
+    transform: scaleY(0.18) translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.guild-layer {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: guild-grow 0.95s var(--ease-out-soft) both;
+  transition: transform 0.45s var(--ease-out-soft);
+}
+
+.guild-l1 {
+  animation-delay: 0.05s;
+}
+.guild-l2 {
+  animation-delay: 0.22s;
+}
+.guild-l3 {
+  animation-delay: 0.42s;
+}
+
+.guild-layer.is-bloom {
+  transform: scale(1.045);
+}
+
+.cover-hen {
+  animation: hen-step 2.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+.cover-wren {
+  animation: wren-hop 4.6s ease-in-out infinite;
+  transform-box: fill-box;
+}
+
+.cover-bee {
+  animation: bee-orbit 7.5s linear infinite;
+  transform-box: fill-box;
+}
+
+@keyframes wren-hop {
+  0%,
+  70%,
+  100% {
+    transform: translate(0, 0);
+  }
+  74% {
+    transform: translate(6px, -10px);
+  }
+  80% {
+    transform: translate(14px, 0);
+  }
+  86% {
+    transform: translate(18px, -6px);
+  }
+  92% {
+    transform: translate(22px, 0);
+  }
+}
+
+@keyframes bee-orbit {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(28px, -18px);
+  }
+  50% {
+    transform: translate(8px, -36px);
+  }
+  75% {
+    transform: translate(-18px, -14px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.cover-rays {
+  background: repeating-linear-gradient(
+    108deg,
+    transparent 0,
+    transparent 46px,
+    rgba(255, 248, 230, 0.16) 47px,
+    rgba(255, 248, 230, 0.16) 62px,
+    transparent 86px
+  );
+  mix-blend-mode: soft-light;
+  animation: ray-drift 36s linear infinite;
+}
+
+@keyframes ray-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 220px 0;
+  }
+}
+
+.cover-vignette {
+  background: radial-gradient(ellipse at 50% 45%, transparent 42%, rgba(243, 230, 208, 0.28) 100%);
+}
+
+.cover-bloom img {
+  transform: scale(1.02);
+  transition: transform 0.5s var(--ease-out-soft);
+}
+
+.cover-grove-mask {
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, #000 18%, #000 100%),
+    linear-gradient(to bottom, #000 0%, #000 82%, transparent 100%);
+  mask-image:
+    linear-gradient(to right, transparent 0%, #000 18%, #000 100%),
+    linear-gradient(to bottom, #000 0%, #000 82%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+@keyframes card-idle {
+  0%,
+  100% {
+    rotate: -0.45deg;
+    translate: 0 0;
+  }
+  50% {
+    rotate: 0.55deg;
+    translate: 0 -5px;
+  }
+}
+
+.card-idle {
+  animation: card-idle 6.8s ease-in-out infinite;
+}
+
+.year-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--color-ink) 12%, var(--color-paper));
+  outline: none;
+}
+.year-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--color-sage-deep);
+  border: 2px solid var(--color-paper);
+  box-shadow: var(--shadow-border);
+  cursor: pointer;
+}
+.year-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--color-sage-deep);
+  border: 2px solid var(--color-paper);
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sway,
+  .sway-slow,
+  .sway-tiny,
+  .wave,
+  .animate-peck,
+  .animate-wander,
+  .animate-bee,
+  .animate-leaf,
+  .animate-bird,
+  .animate-fade-up,
+  .cover-breathe,
+  .cover-leaf,
+  .guild-layer,
+  .cover-hen,
+  .cover-wren,
+  .cover-bee,
+  .cover-rays,
+  .card-idle {
+    animation: none !important;
+  }
+}
